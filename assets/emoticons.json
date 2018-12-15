@@ -1,0 +1,107 @@
+{
+  "frames": {
+    "emo 0": {
+      "frame": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "sourceSize": { "w": 72, "h": 72 },
+      "duration": 0
+    },
+    "emo 1": {
+      "frame": { "x": 72, "y": 0, "w": 72, "h": 72 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "sourceSize": { "w": 72, "h": 72 },
+      "duration": 0
+    },
+    "emo 2": {
+      "frame": { "x": 144, "y": 0, "w": 72, "h": 72 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "sourceSize": { "w": 72, "h": 72 },
+      "duration": 0
+    },
+    "emo 3": {
+      "frame": { "x": 216, "y": 0, "w": 72, "h": 72 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "sourceSize": { "w": 72, "h": 72 },
+      "duration": 0
+    },
+    "emo 4": {
+      "frame": { "x": 288, "y": 0, "w": 72, "h": 72 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "sourceSize": { "w": 72, "h": 72 },
+      "duration": 0
+    },
+    "emo 5": {
+      "frame": { "x": 360, "y": 0, "w": 72, "h": 72 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "sourceSize": { "w": 72, "h": 72 },
+      "duration": 0
+    },
+
+    "emo 6": {
+      "frame": { "x": 0, "y": 72, "w": 72, "h": 72 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "sourceSize": { "w": 72, "h": 72 },
+      "duration": 0
+    },
+    "emo 7": {
+      "frame": { "x": 72, "y": 72, "w": 72, "h": 72 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "sourceSize": { "w": 72, "h": 72 },
+      "duration": 0
+    },
+    "emo 8": {
+      "frame": { "x": 144, "y": 72, "w": 72, "h": 72 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "sourceSize": { "w": 72, "h": 72 },
+      "duration": 0
+    },
+    "emo 9": {
+      "frame": { "x": 216, "y": 72, "w": 72, "h": 72 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "sourceSize": { "w": 72, "h": 72 },
+      "duration": 0
+    },
+    "emo 10": {
+      "frame": { "x": 288, "y": 72, "w": 72, "h": 72 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "sourceSize": { "w": 72, "h": 72 },
+      "duration": 0
+    },
+    "emo 11": {
+      "frame": { "x": 360, "y": 72, "w": 72, "h": 72 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "sourceSize": { "w": 72, "h": 72 },
+      "duration": 0
+    }
+  },
+  "meta": {
+    "image": "./assets/emoticons.png",
+    "format": "RGBA8888",
+    "size": { "w": 360, "h": 288 },
+    "scale": "1"
+  }
+}

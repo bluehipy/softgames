@@ -1,0 +1,91 @@
+body, canvas {
+  display: block;
+  margin:0;
+  padding:0;
+  border:0;
+  position: absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  overflow:hidden;
+}
+
+.settings-panel {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 999;
+}
+.settings-panel .btn {
+    margin-left: .5rem;
+}
+
+.btn-circle {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+}
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    font-family: Veneer,sans-serif;
+    letter-spacing: 1px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .75rem 1.25rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    border-radius: 10rem;
+    background: rgba(0,0,0,.7);
+    color: #fff;
+    cursor: pointer;
+    transition: opacity .25s ease;
+}
+.btn-circle .icon.icon-expand {
+    width: 1.2em;
+    height: 1.2em;
+}
+.btn-circle .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    width: 1.4em;
+    height: 1.4em;
+}
+.icon, .icon svg {
+    display: inline-block;
+}
+.icon {
+    position: relative;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    line-height: 1;
+}
+svg:not(:root) {
+    overflow: hidden;
+}
+.icon svg {
+    height: 100%;
+    width: auto;
+    stroke-width: 1.5;
+}
+.icon, .icon svg {
+    display: inline-block;
+}
+*, :after, :before {
+    box-sizing: inherit;
+}
+.hidden {
+  display: none;
+}
