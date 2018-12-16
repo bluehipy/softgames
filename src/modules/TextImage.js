@@ -5,7 +5,8 @@ export default class TextImage extends BaseModule {
   init() {
     this.index = 0;
     this.templates = [
-      "#9#5",
+      "Hello there!",
+      "#2#4",
       "text #1 and #5 text",
       "#2 and #3 text #4",
       "#7 #8 some text",
@@ -52,12 +53,13 @@ export default class TextImage extends BaseModule {
     if (this.lastMsg) {
       this.lastMsg.destroy();
     }
-    this.index++;
+
     this.index = this.index % (this.templates.length - 1);
     let msg = this.parse(this.templates[this.index]);
     this.lastMsg = this.layout(msg);
     this.stage.addChild(this.lastMsg);
     this.centerMessage();
+    this.index++;
   }
   centerMessage() {
     if (this.lastMsg) {

@@ -1,6 +1,6 @@
 var path = require("path");
 var webpack = require("webpack");
-console.log(path.join(__dirname, "node_modules"));
+
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
   entry: "./index.js",

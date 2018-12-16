@@ -35,6 +35,8 @@ export default class AwesomeFire extends BaseModule {
       flame.maxScale = 0;
       flame.alpha = 0;
       this.container.addChild(this.initFlame(flame));
+      flame.scale.x = flame.scale.y =
+        (flame.maxScale * (i + 1)) / this.maxCount;
     }
     this.ticker.add(this.render, this);
   }
@@ -50,7 +52,7 @@ export default class AwesomeFire extends BaseModule {
       flame.x = (this.width - flame.width) / 2;
       flame.y = this.height - flame.height;
       if (flame.scale.x > 0.75 * flame.maxScale) {
-        flame.alpha -= 1.5 * flame.speed;
+        flame.alpha -= flame.speed;
       }
       if (flame.scale.x < 0.75 * flame.maxScale) {
         flame.alpha = Math.min(0.2, flame.alpha + flame.speed);
@@ -66,10 +68,11 @@ export default class AwesomeFire extends BaseModule {
     flame.x = (this.width - flame.width) / 2;
     flame.height = this.height;
     flame.maxScale = flame.scale.y;
+    flame.maxScale = flame.maxScale / 2 + Math.random(flame.maxScale);
 
     flame.scale.y = flame.scale.x = 0.2 * flame.maxScale;
     flame.alpha = 0;
-    flame.speed = 1 / (350 + 250 * Math.random());
+    flame.speed = 1 / (150 + 50 * Math.random());
     flame.rotation = ((10 - Math.random() * 5) * Math.PI) / 180;
 
     flame.y = this.height - flame.height;
