@@ -20,12 +20,13 @@ export default class Game {
     this.startDemo(1);
   }
   resize(width, height) {
+    let gap;
     this.width = width;
     this.height = height;
 
     if (this.menuBtn) {
       this.menuBtn.y = 5;
-      this.menuBtn.width = this.width / 20;
+      this.menuBtn.width = this.width / 15;
       this.menuBtn.scale.y = this.menuBtn.scale.x;
       this.menuBtn.x = width - this.menuBtn.width - 5;
     }
@@ -34,9 +35,11 @@ export default class Game {
       this.fpsTxt.x = 5;
       this.fpsTxt.y = 5;
     }
-
+    gap = this.getGap();
     if (this.demo) {
-      this.demo.resize(width, height);
+      this.demo.resize(width - 2 * gap, height - 2 * gap);
+      this.demo.stage.x = gap;
+      this.demo.stage.y = gap;
     }
     if (this.menuOptions) {
       this.menuOptions.destroy();
@@ -44,8 +47,19 @@ export default class Game {
       this.showMenuOptions();
     }
   }
+  getGap() {
+    const a = this.fpsTxt;
+    const b = this.menuBtn;
+
+    if (a && b) {
+      return Math.max(a.y + a.height, b.y + b.height) + 5;
+    }
+    return 5;
+  }
   showFPS() {
-    const fpsTxt = new PIXI.Text(this.ticker.FPS.toFixed(2));
+    const fpsTxt = new PIXI.Text(this.ticker.FPS.toFixed(2), {
+      fontSize: "3em"
+    });
     fpsTxt.position = new PIXI.Point(5, 5);
     this.stage.addChild(fpsTxt);
     this.ticker.add(() => {
@@ -56,7 +70,7 @@ export default class Game {
   showMenu(res) {
     this.menuBtn = new PIXI.Sprite(res.menu.texture);
     this.stage.addChild(this.menuBtn);
-    this.menuBtn.width = this.width / 20;
+    this.menuBtn.width = this.width / 15;
     this.menuBtn.scale.y = this.menuBtn.scale.x;
     this.menuBtn.y = 5;
     this.menuBtn.x = this.width - this.menuBtn.width - 5;
@@ -105,12 +119,16 @@ export default class Game {
   }
   startDemo(demoIndex) {
     this.stopDemo();
+    const container = this.stage.addChild(new PIXI.Container());
+    const gap = this.getGap();
+    container.x = gap;
+    container.y = gap;
     this.demo = new this.modules[demoIndex]({
-      stage: this.stage.addChild(new PIXI.Container()),
+      stage: container,
       ticker: this.ticker,
       loader: this.loader,
-      width: this.width,
-      height: this.height
+      width: this.width - 2 * gap,
+      height: this.height - 2 * gap
     });
   }
   stopDemo() {

@@ -66,10 +66,10 @@ export default class TextImage extends BaseModule {
     }
   }
   parse(msg) {
-    const re = /(#\d+?)/g;
+    const re = /(#\d+)/g;
     const separator = "##$$$";
     let out = [];
-    const size = 1 + Math.floor(Math.random() * 4) + "em";
+    const size = 3 + Math.floor(Math.random() * 4) + "em";
     let result = [];
     const replacer = (match, p, offset, s) => {
       out.push(match.substr(1));

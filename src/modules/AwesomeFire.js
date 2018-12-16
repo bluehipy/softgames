@@ -5,7 +5,7 @@ export default class AwesomeFire extends BaseModule {
   init() {
     this.maxCount = 10;
     this.bg = new PIXI.Graphics();
-    this.bg.beginFill(0x000000, 0.8);
+    this.bg.beginFill(0x000000, 1);
     this.bg.drawRect(0, 0, 10, 10);
     this.bg.endFill();
     this.bg.width = this.width;
@@ -32,6 +32,7 @@ export default class AwesomeFire extends BaseModule {
     for (let i = 0; i < this.maxCount; i++) {
       let flame = new PIXI.Sprite(this.texture);
       flame.speed = 1;
+      flame.maxScale = 0;
       flame.alpha = 0;
       this.container.addChild(this.initFlame(flame));
     }
@@ -43,23 +44,35 @@ export default class AwesomeFire extends BaseModule {
     );
   }
   initFlame(flame) {
-    flame.scale.x += flame.speed;
-    flame.scale.y = flame.scale.x;
+    if (flame.maxScale) {
+      flame.scale.x += flame.speed;
+      flame.scale.y = flame.scale.x;
+      flame.x = (this.width - flame.width) / 2;
+      flame.y = this.height - flame.height;
+      if (flame.scale.x > 0.75 * flame.maxScale) {
+        flame.alpha -= 1.5 * flame.speed;
+      }
+      if (flame.scale.x < 0.75 * flame.maxScale) {
+        flame.alpha = Math.min(0.2, flame.alpha + flame.speed);
+      }
+      if (flame.rottion !== 0) {
+        flame.rottion = (flame.rottion > 0 ? -1 : 1) * flame.speed;
+      }
+    }
+    if (flame.scale.x < flame.maxScale || flame.alpha > 0) return flame;
+
+    flame.scale.y = flame.scale.x = 1;
+    flame.rotation = 0;
     flame.x = (this.width - flame.width) / 2;
-    flame.y = this.height - flame.height - 100;
-    if (flame.scale.x > 1) {
-      flame.alpha -= flame.speed;
-    }
-    if (flame.scale.x < 1) {
-      flame.alpha = Math.min(0.2, flame.alpha + flame.speed);
-    }
-    if (flame.scale.x < 1.5) return flame;
-    flame.scale.y = flame.scale.x = 0.2;
+    flame.height = this.height;
+    flame.maxScale = flame.scale.y;
+
+    flame.scale.y = flame.scale.x = 0.2 * flame.maxScale;
     flame.alpha = 0;
-    flame.speed = 1 / (150 + 250 * Math.random());
-    flame.x = (this.width - flame.width) / 2;
-    flame.y = this.height - flame.height - 100;
-    flame.rotation = ((6 - Math.random() * 3) * Math.PI) / 180;
+    flame.speed = 1 / (350 + 250 * Math.random());
+    flame.rotation = ((10 - Math.random() * 5) * Math.PI) / 180;
+
+    flame.y = this.height - flame.height;
     return flame;
   }
   resize(width, height) {
